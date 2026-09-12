@@ -2,7 +2,7 @@
 
 Palantir-style policy intelligence for Ethiopia. Dark operational UI, bilingual English / Amharic, live World Bank national indicators, and **ten high-impact dashboards** for government and stakeholders.
 
-**Live site:** [https://aarondanieltesfaye-crypto.github.io/EthioIntel-Demo/](https://aarondanieltesfaye-crypto.github.io/EthioIntel-Demo/)
+**Live site (after Pages is on):** [https://aarondanieltesfaye-crypto.github.io/EthioIntel-Demo/](https://aarondanieltesfaye-crypto.github.io/EthioIntel-Demo/)
 
 ## Programmes
 
@@ -27,9 +27,18 @@ Use **EN / አማ** in the header. Preference is stored in the browser.
 
 National totals refresh from the [World Bank World Development Indicators](https://data.worldbank.org/) for Ethiopia (`ETH`) when the API is reachable. Regional scores, corridor times, housing stocks, and incubator counts are compiled from the latest published ESS, EDHS, FAO, WFP, ILO, GSMA, IPDC, NMA, and NDRMC tables — they are not live administrative feeds.
 
-## GitHub Pages
+## Turn on GitHub Pages (one-time)
 
-This repository is a static site. Pages is published from **main / root** (or via the included **Deploy GitHub Pages** workflow).
+The site files already live on `main`. Enable hosting once:
+
+1. Open [Settings → Pages](https://github.com/aarondanieltesfaye-crypto/EthioIntel-Demo/settings/pages)
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**
+3. Branch: **main**, folder: **/ (root)**
+4. Save
+
+The public URL will be `https://aarondanieltesfaye-crypto.github.io/EthioIntel-Demo/`
+
+Alternatively, set Source to **GitHub Actions** and re-run the **Deploy GitHub Pages** workflow.
 
 ## License
 
