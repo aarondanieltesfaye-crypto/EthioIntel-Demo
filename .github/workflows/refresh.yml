@@ -1,0 +1,31 @@
+name: Refresh open data
+on:
+  schedule:
+    - cron: "15 4 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: refresh-open-data
+  cancel-in-progress: true
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Pull World Bank WDI and FAOSTAT
+        run: node scripts/refresh-open-data.mjs
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/live.json data/app.json
+          if git diff --cached --quiet; then
+            echo "no data change"
+          else
+            git commit -m "chore: refresh open World Bank / FAOSTAT snapshot"
+            git push
+          fi
